@@ -10,16 +10,17 @@ node {
     }
 
     stage('clean') {
-        ./gradlew clean --no-daemon
+        sh "chmod +x gradlew"
+        sh "./gradlew clean --no-daemon"
     }
 
     stage('npm install') {
-        ./gradlew npm_install -PnodeInstall --no-daemon
+        sh "./gradlew npm_install -PnodeInstall --no-daemon"
     }
 
     stage('backend tests') {
         try {
-            ./gradlew test integrationTest -PnodeInstall --no-daemon
+            sh "./gradlew test integrationTest -PnodeInstall --no-daemon"
         } catch(err) {
             throw err
         } finally {
@@ -29,7 +30,7 @@ node {
 
     stage('frontend tests') {
         try {
-            ./gradlew npm_run_test -PnodeInstall --no-daemon
+            sh "./gradlew npm_run_test -PnodeInstall --no-daemon"
         } catch(err) {
             throw err
         } finally {
@@ -38,7 +39,7 @@ node {
     }
 
     stage('packaging') {
-        ./gradlew bootJar -x test -Pprod -PnodeInstall --no-daemon
+        sh "./gradlew bootJar -x test -Pprod -PnodeInstall --no-daemon"
         archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
     }
 
