@@ -16,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -119,8 +120,9 @@ public class OrderItemResource {
      *
      * @param id the id of the orderItem to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
+     */    
     @DeleteMapping("/order-items/{id}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteOrderItem(@PathVariable Long id) {
         log.debug("REST request to delete OrderItem : {}", id);
         orderItemService.delete(id);
