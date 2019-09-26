@@ -6,21 +6,21 @@ node {
     }
 
     stage('check java') {
-        sh "java -version"
+        java -version
     }
 
     stage('clean') {
-        sh "chmod +x gradlew"
-        sh "./gradlew clean --no-daemon"
+        chmod +x gradlew
+        ./gradlew clean --no-daemon
     }
 
     stage('npm install') {
-        sh "./gradlew npm_install -PnodeInstall --no-daemon"
+        ./gradlew npm_install -PnodeInstall --no-daemon
     }
 
     stage('backend tests') {
         try {
-            sh "./gradlew test integrationTest -PnodeInstall --no-daemon"
+            ./gradlew test integrationTest -PnodeInstall --no-daemon
         } catch(err) {
             throw err
         } finally {
@@ -30,7 +30,7 @@ node {
 
     stage('frontend tests') {
         try {
-            sh "./gradlew npm_run_test -PnodeInstall --no-daemon"
+            ./gradlew npm_run_test -PnodeInstall --no-daemon
         } catch(err) {
             throw err
         } finally {
@@ -39,7 +39,7 @@ node {
     }
 
     stage('packaging') {
-        sh "./gradlew bootJar -x test -Pprod -PnodeInstall --no-daemon"
+        ./gradlew bootJar -x test -Pprod -PnodeInstall --no-daemon
         archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
     }
 
