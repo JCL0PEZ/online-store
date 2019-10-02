@@ -33,8 +33,6 @@ node {
             sh "./gradlew npm_run_test -PnodeInstall --no-daemon"
         } catch(err) {
             throw err
-        } finally {
-            junit '**/build/test-results/test/TESTS-*.xml'
         }
     }
 
