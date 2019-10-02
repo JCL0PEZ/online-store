@@ -19,6 +19,6 @@ const ENTITY_STATES = [...shipmentRoute, ...shipmentPopupRoute];
     ShipmentDeleteDialogComponent,
     ShipmentDeletePopupComponent
   ],
-  entryComponents: [ShipmentComponent, ShipmentUpdateComponent, ShipmentDeleteDialogComponent, ShipmentDeletePopupComponent]
+  entryComponents: [ShipmentDeleteDialogComponent]
 })
 export class StoreShipmentModule {}

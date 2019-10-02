@@ -16,8 +16,8 @@
 logging:
   level:
     ROOT: INFO
-    com.mycompany.store: INFO
     io.github.jhipster: INFO
+    com.mycompany.store: INFO
 
 management:
   metrics:

@@ -44,8 +44,8 @@ public class CustomerResourceIT {
     private static final Gender DEFAULT_GENDER = Gender.MALE;
     private static final Gender UPDATED_GENDER = Gender.FEMALE;
 
-    private static final String DEFAULT_EMAIL = "a7@?.!";
-    private static final String UPDATED_EMAIL = "X(@E#.J";
+    private static final String DEFAULT_EMAIL = "'@}e.J";
+    private static final String UPDATED_EMAIL = "*H@H.Fo";
 
     private static final String DEFAULT_PHONE = "AAAAAAAAAA";
     private static final String UPDATED_PHONE = "BBBBBBBBBB";

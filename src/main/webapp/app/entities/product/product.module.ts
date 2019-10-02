@@ -19,6 +19,6 @@ const ENTITY_STATES = [...productRoute, ...productPopupRoute];
     ProductDeleteDialogComponent,
     ProductDeletePopupComponent
   ],
-  entryComponents: [ProductComponent, ProductUpdateComponent, ProductDeleteDialogComponent, ProductDeletePopupComponent]
+  entryComponents: [ProductDeleteDialogComponent]
 })
 export class StoreProductModule {}

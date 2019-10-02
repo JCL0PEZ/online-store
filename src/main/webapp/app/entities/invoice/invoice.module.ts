@@ -19,6 +19,6 @@ const ENTITY_STATES = [...invoiceRoute, ...invoicePopupRoute];
     InvoiceDeleteDialogComponent,
     InvoiceDeletePopupComponent
   ],
-  entryComponents: [InvoiceComponent, InvoiceUpdateComponent, InvoiceDeleteDialogComponent, InvoiceDeletePopupComponent]
+  entryComponents: [InvoiceDeleteDialogComponent]
 })
 export class StoreInvoiceModule {}
