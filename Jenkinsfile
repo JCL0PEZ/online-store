@@ -34,7 +34,7 @@ node {
         } catch(err) {
             throw err
         } finally {
-            junit '**/build/test-results/TESTS-*.xml'
+            junit '**/build/test-results/test/TESTS-*.xml'
         }
     }
 
